@@ -1,14 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-request-delete-account-form',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './request-delete-account-form.component.html',
-  styleUrl: './request-delete-account-form.component.scss'
+  styleUrl: './request-delete-account-form.component.scss',
 })
 export class RequestDeleteAccountFormComponent {
   email: string = ''
   reason: string = ''
   isConfirmed: boolean = false
+  status: Status = null
 }
+
+export type Status = 'success' | 'error' | 'loading' | null
