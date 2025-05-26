@@ -4,22 +4,42 @@
     <form action="/delete-account" method="POST">
       <div class="mb-3">
         <label for="email" class="form-label">Your Email</label>
-        <input type="email" class="form-control" id="email" name="email" required>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          required
+          [(ngModel)]="email">
       </div>
 
       <div class="mb-3">
         <label for="reason" class="form-label">Reason for Deletion (optional)</label>
-        <textarea class="form-control" id="reason" name="reason" rows="3"></textarea>
+        <textarea
+          class="form-control"
+          id="reason"
+          name="reason"
+          rows="3"
+          [(ngModel)]="reason"></textarea>
       </div>
 
       <div class="form-check mb-3 d-flex align-items-center">
-        <input class="form-check-input me-2" type="checkbox" id="confirm" required>
+        <input
+          class="form-check-input me-2"
+          type="checkbox"
+          id="confirm"
+          required
+          [(ngModel)]="isConfirmed"
+          [ngModelOptions]="{standalone: true}">
         <label class="form-check-label" for="confirm">
           I understand this action is irreversible.
         </label>
       </div>
 
-      <button type="submit" class="btn btn-danger w-100">Delete My Account</button>
+      <button
+        type="submit"
+        class="btn btn-danger w-100"
+        [disabled]="!email.length || !reason.length || !isConfirmed">Delete My Account</button>
     </form>
   </div>
 </div>
