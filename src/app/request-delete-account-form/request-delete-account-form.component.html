@@ -1,1 +1,25 @@
-<p>request-delete-account-form works!</p>
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="w-100" style="max-width: 500px; min-width: 300px;">
+    <h3 class="mb-4 text-danger">Delete Account</h3>
+    <form action="/delete-account" method="POST">
+      <div class="mb-3">
+        <label for="email" class="form-label">Your Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="reason" class="form-label">Reason for Deletion (optional)</label>
+        <textarea class="form-control" id="reason" name="reason" rows="3"></textarea>
+      </div>
+
+      <div class="form-check mb-3 d-flex align-items-center">
+        <input class="form-check-input me-2" type="checkbox" id="confirm" required>
+        <label class="form-check-label" for="confirm">
+          I understand this action is irreversible.
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-danger w-100">Delete My Account</button>
+    </form>
+  </div>
+</div>
