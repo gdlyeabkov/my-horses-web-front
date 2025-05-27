@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { RequestDeleteAccountFormComponent } from './request-delete-account-form/request-delete-account-form.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
-import { AppComponent } from './app.component';
 
 export const routes: Routes = [
     {
