@@ -8,12 +8,13 @@ import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/rou
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
   
   ngOnInit() {
     const urlParams = new URLSearchParams(window.location.search)
     const redirect = urlParams.get('route')
     if (redirect?.length) this.router.navigate([redirect])
+    else if (this.router.url === '/') this.router.navigate(['request-delete-account-form'])
   }
 }
 
