@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,14 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'my-horses-web';
+export class AppComponent implements OnInit {
+  constructor(private router: Router) { }
+  
+  ngOnInit() {
+    const urlParams = new URLSearchParams(window.location.search)
+    const redirect = urlParams.get('route')
+    if (redirect?.length) this.router.navigate([redirect])
+  }
 }
+
+
